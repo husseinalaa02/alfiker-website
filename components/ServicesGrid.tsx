@@ -1,36 +1,36 @@
 "use client"
 
-import { Wifi, Globe, Cpu, Radio } from "lucide-react"
+import { Network, ShieldCheck, GraduationCap, Monitor } from "lucide-react"
 import { GlowingEffect } from "@/components/ui/glowing-effect"
 import { cn } from "@/lib/utils"
 
 const services = [
   {
-    icon: <Wifi className="h-4 w-4" />,
-    title: "Internet Services",
+    icon: <Network className="h-4 w-4" />,
+    title: "Telecom & Technical Solutions",
     description:
-      "High-speed, reliable connectivity solutions for businesses requiring uninterrupted global access.",
+      "FTTH network design & deployment, satellite communications, P2P & P2MP wireless links, fiber optic maintenance (OTDR, splicing), structured cabling, and enterprise networking using Cisco, HPE Aruba, Dell & more.",
     area: "md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/7]",
   },
   {
-    icon: <Globe className="h-4 w-4" />,
-    title: "Int. Gateway Solutions",
+    icon: <ShieldCheck className="h-4 w-4" />,
+    title: "Cybersecurity & Software",
     description:
-      "Seamless international gateway services connecting your business across borders with zero compromise.",
+      "End-to-end cybersecurity: SIEM/XDR/SOC monitoring, PAM/IAM, DLP & data classification, EDR endpoint protection, vulnerability management, threat intelligence, dark web monitoring, GRC, and secure email gateways.",
     area: "md:[grid-area:1/7/2/13] xl:[grid-area:1/7/2/13]",
   },
   {
-    icon: <Cpu className="h-4 w-4" />,
-    title: "IT Solutions",
+    icon: <GraduationCap className="h-4 w-4" />,
+    title: "Training & Certifications",
     description:
-      "Comprehensive software and infrastructure support to digitize and optimize your entire workflow.",
+      "Professional training in partnership with ISC2, ISACA, EC-Council, PECB, BSI, CompTIA, and CertNexus. Programs cover cybersecurity, networking, governance, and advanced technology — online, in-person & corporate.",
     area: "md:[grid-area:2/1/3/7] xl:[grid-area:2/1/3/7]",
   },
   {
-    icon: <Radio className="h-4 w-4" />,
-    title: "Radio Planning",
+    icon: <Monitor className="h-4 w-4" />,
+    title: "Hardware Supply",
     description:
-      "Expert planning and optimization to ensure maximum network coverage and operational efficiency.",
+      "Full range of IT hardware: desktops, laptops, servers, storage systems, monitors, printers, UPS systems, GPUs, RAM, SSDs, motherboards, cooling systems, and complete data center setup & migration services.",
     area: "md:[grid-area:2/7/3/13] xl:[grid-area:2/7/3/13]",
   },
 ]

@@ -2,20 +2,20 @@
 
 import { HeroSection } from "@/components/HeroSection"
 import Link from "next/link"
-import { Wifi, Cpu } from "lucide-react"
+import { Network, ShieldCheck } from "lucide-react"
 
 const cards = [
   {
     img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
-    title: "Internet Services",
-    desc: "High-speed, reliable connectivity solutions for businesses requiring uninterrupted global access.",
-    icon: Wifi,
+    title: "Telecom & Technical Solutions",
+    desc: "FTTH networks, satellite communications, wireless links, fiber optic maintenance, and enterprise networking infrastructure.",
+    icon: Network,
   },
   {
     img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-    title: "IT Solutions",
-    desc: "Comprehensive software and infrastructure support to digitize and optimize your workflow.",
-    icon: Cpu,
+    title: "Cybersecurity & Software",
+    desc: "SIEM/SOC monitoring, endpoint protection, PAM/IAM, DLP, vulnerability management, and 24/7 managed security services.",
+    icon: ShieldCheck,
   },
 ]
 
@@ -32,7 +32,7 @@ export default function HomePage() {
               What We Offer
             </h2>
             <p className="text-[1.15rem] text-[#6b7c99] max-w-[560px] mx-auto">
-              Premium products and elite services tailored to your connectivity needs.
+              Advanced telecom, cybersecurity, training, and hardware solutions — trusted since 2007 in Iraq.
             </p>
           </div>
 

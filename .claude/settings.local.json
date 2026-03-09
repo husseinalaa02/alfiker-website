@@ -9,7 +9,10 @@
       "WebFetch(domain:localhost)",
       "Bash(ls:*)",
       "Bash(grep:*)",
-      "Bash(npm outdated:*)"
+      "Bash(npm outdated:*)",
+      "Bash(brew install:*)",
+      "Bash(pdftoppm:*)",
+      "Bash(pdftotext:*)"
     ]
   }
 }

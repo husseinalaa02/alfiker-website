@@ -6,19 +6,34 @@ export const metadata: Metadata = {
 
 const projects = [
   {
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80",
-    title: "Global Uplink Project",
-    desc: "Establishing resilient satellite communication links for remote mining operations.",
+    img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&q=80",
+    title: "Fiber Optic — 1,750 km",
+    desc: "Open-cut fiber optic cable laying and splicing across 1,750 km for major telecom operators including Earthlink, Zain, and Asiacell.",
   },
   {
-    img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&q=80",
-    title: "Fiber Optic Expansion",
-    desc: "Deployment of 500km of high-capacity fiber optic infrastructure for a metropolitan area.",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+    title: "Micro-Trench — 400 km",
+    desc: "Fiber optic infrastructure deployment using micro-trenching technology across 400 km of urban terrain.",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80",
+    title: "FTTH — Karbala, Najaf, Babylon & Basra",
+    desc: "Fiber-to-the-home projects across four Iraqi governorates using micro-trench and directional boring techniques, including main source connection and full commissioning.",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=80",
+    title: "Wireless Network — Karbala & Kirkuk",
+    desc: "Design and deployment of wireless internet network covering all districts and sub-districts of Karbala Governorate and part of Kirkuk.",
   },
   {
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-    title: "Network Optimization",
-    desc: "Radio planning and optimization for a national carrier, improving coverage by 40%.",
+    title: "Al-Hussein Teaching Hospital",
+    desc: "Full ICT infrastructure deployment for Al-Hussein Teaching Hospital, including structured cabling, networking, and technical support systems.",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80",
+    title: "Crystal Hotels Group",
+    desc: "Enterprise network and IT infrastructure setup for Crystal Hotels Group, delivering reliable connectivity and security across all hotel branches.",
   },
 ]
 
@@ -56,7 +71,7 @@ export default function ProjectsPage() {
               Successful Implementations
             </h2>
             <p className="text-[1.15rem] text-[#6b7c99] max-w-[560px] mx-auto">
-              Explore our portfolio of successful deployments across the globe.
+              Real projects delivered across Iraq for telecom operators, hospitals, hotels, and government entities.
             </p>
           </div>
 

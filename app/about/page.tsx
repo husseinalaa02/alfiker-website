@@ -5,11 +5,17 @@ export const metadata: Metadata = {
 }
 
 const values = [
-  "Global Reach via Satellite Technology",
-  "Reliable Fiber Optic Networks",
-  "Expert IT & Software Support",
-  "24/7 Customer Service",
+  "Integrated & Reliable Telecommunications Solutions",
+  "Advanced Digital Infrastructure Development",
+  "Cybersecurity & Data Protection Services",
+  "Professional Training with International Certifications",
+  "24/7 Technical Support & Managed Services",
+  "Sustainable Solutions Supporting Digital Transformation",
 ]
+
+const vision = "To become a trusted regional leader in telecommunications and digital infrastructure solutions by delivering high-quality services aligned with the latest international standards, empowering communities and businesses through advanced technologies that accelerate digital transformation and promote sustainable development."
+
+const mission = "At AFAQ ALFIKER COMPANY, we strive to deliver advanced telecommunications and IT solutions that contribute to building strong and secure digital infrastructure capable of meeting present demands and future challenges. We are committed to providing high-quality services driven by innovation and operational excellence, while continuously developing our team to ensure the delivery of the best technical solutions."
 
 export default function AboutPage() {
   return (
@@ -35,7 +41,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Content */}
+      {/* Company Overview */}
       <section className="py-[110px] bg-[#f4f6fb]">
         <div className="max-w-6xl mx-auto px-7">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_1.3fr] gap-[80px] items-center">
@@ -55,14 +61,15 @@ export default function AboutPage() {
                 Your Partner in Connectivity
               </h3>
               <p className="text-[#6b7c99] mb-[18px] text-[1.05rem] leading-[1.75]">
-                AFAQ ALFIKER is a leading provider of Telecom and Software Services. We specialize
-                in delivering top-tier communication solutions via satellite and fiber optics, built
-                on a foundation of reliability and innovation.
+                AFAQ ALFIKER COMPANY was established in 2007 in Holy Karbala, Iraq, by a
+                distinguished group of highly qualified and experienced engineers specializing in
+                telecommunications and information technology.
               </p>
               <p className="text-[#6b7c99] mb-[28px] text-[1.05rem] leading-[1.75]">
-                Our customer-centric approach ensures that whether you need local connectivity or
-                global reach, we have the expertise and infrastructure to keep you connected —
-                anywhere, anytime.
+                Since its inception, the company has set a strategic objective to deliver integrated
+                and reliable communication solutions, and to contribute to building advanced
+                infrastructure that keeps pace with the rapid technological evolution in
+                telecommunications and internet sectors.
               </p>
 
               <ul className="space-y-3.5">
@@ -74,6 +81,40 @@ export default function AboutPage() {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision & Mission */}
+      <section className="py-[90px] bg-white">
+        <div className="max-w-6xl mx-auto px-7">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="p-8 rounded-[18px] bg-[#f4f6fb] border border-[rgba(37,99,168,0.1)]">
+              <h3 className="text-[1.5rem] font-bold text-[#1e2a3a] mb-4">Our Vision</h3>
+              <p className="text-[#6b7c99] leading-[1.75] text-[1rem]">{vision}</p>
+            </div>
+            <div className="p-8 rounded-[18px] bg-[#f4f6fb] border border-[rgba(37,99,168,0.1)]">
+              <h3 className="text-[1.5rem] font-bold text-[#1e2a3a] mb-4">Our Mission</h3>
+              <p className="text-[#6b7c99] leading-[1.75] text-[1rem]">{mission}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="py-[90px] bg-[#f4f6fb]">
+        <div className="max-w-6xl mx-auto px-7 text-center">
+          <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-[#1e2a3a] mb-3">Our Partners</h2>
+          <p className="text-[#6b7c99] mb-10 text-[1.05rem]">Trusted global brands we work with</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {["Earthlink", "Zain", "Asiacell", "HP", "Dell", "MikroTik", "Hikvision", "Dahua", "Cisco", "ISC2", "FLIR"].map((p) => (
+              <span
+                key={p}
+                className="px-5 py-2.5 bg-white rounded-full border border-[rgba(37,99,168,0.15)] text-[#1e2a3a] font-medium text-[0.9rem] shadow-sm"
+              >
+                {p}
+              </span>
+            ))}
           </div>
         </div>
       </section>

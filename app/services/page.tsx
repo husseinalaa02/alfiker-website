@@ -26,7 +26,7 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="text-white/50 mt-3 text-[1.1rem]">
-            Comprehensive solutions across the full telecom spectrum
+            Telecom, cybersecurity, training, and hardware — all under one roof
           </p>
         </div>
       </section>
@@ -39,7 +39,7 @@ export default function ServicesPage() {
               Elite Solutions Portfolio
             </h2>
             <p className="text-[1.15rem] text-muted-foreground max-w-[560px] mx-auto">
-              From Radio Planning to International Gateways, we cover the spectrum.
+              From fiber optic infrastructure to certified cybersecurity training, we deliver end-to-end solutions.
             </p>
           </div>
 
