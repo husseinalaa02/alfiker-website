@@ -1,14 +1,12 @@
-import type { Metadata } from "next"
+import { getTranslations } from "next-intl/server"
 import { ServicesGrid } from "@/components/ServicesGrid"
 
-export const metadata: Metadata = {
-  title: "Services - AFAQ ALFIKER",
-}
+export default async function ServicesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: "services" })
 
-export default function ServicesPage() {
   return (
     <>
-      {/* Page header */}
       <section
         className="pt-32 pb-16 text-center relative overflow-hidden"
         style={{ background: "linear-gradient(160deg, #07070f 0%, #0c1a2e 100%)" }}
@@ -22,27 +20,18 @@ export default function ServicesPage() {
           }}
         />
         <div className="max-w-6xl mx-auto px-7 relative z-10">
-          <h1 className="text-[clamp(2.2rem,5vw,3.8rem)] font-bold tracking-[-0.02em] text-white">
-            Our Services
-          </h1>
-          <p className="text-white/50 mt-3 text-[1.1rem]">
-            Telecom, cybersecurity, training, and hardware — all under one roof
-          </p>
+          <h1 className="text-[clamp(2.2rem,5vw,3.8rem)] font-bold tracking-[-0.02em] text-white">{t("title")}</h1>
+          <p className="text-white/50 mt-3 text-[1.1rem]">{t("subtitle")}</p>
         </div>
       </section>
-
-      {/* Services grid with GlowingEffect */}
       <section className="py-[110px] bg-background">
         <div className="max-w-6xl mx-auto px-7">
           <div className="text-center mb-16">
             <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold tracking-[-0.015em] text-foreground mb-3">
-              Elite Solutions Portfolio
+              {t("portfolioTitle")}
             </h2>
-            <p className="text-[1.15rem] text-muted-foreground max-w-[560px] mx-auto">
-              From fiber optic infrastructure to certified cybersecurity training, we deliver end-to-end solutions.
-            </p>
+            <p className="text-[1.15rem] text-muted-foreground max-w-[560px] mx-auto">{t("portfolioSubtitle")}</p>
           </div>
-
           <ServicesGrid />
         </div>
       </section>

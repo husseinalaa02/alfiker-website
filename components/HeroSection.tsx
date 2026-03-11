@@ -3,10 +3,15 @@
 import { useRef, useEffect } from "react"
 import Link from "next/link"
 import { ConnectivityVisual } from "./ConnectivityVisual"
+import { useTranslations } from "next-intl"
+import { useParams } from "next/navigation"
 
 export function HeroSection() {
   const heroRef = useRef<HTMLElement>(null)
   const spotlightRef = useRef<HTMLDivElement>(null)
+  const t = useTranslations("home")
+  const params = useParams()
+  const locale = params.locale as string
 
   useEffect(() => {
     const hero = heroRef.current
@@ -29,6 +34,12 @@ export function HeroSection() {
       if (rafId) cancelAnimationFrame(rafId)
     }
   }, [])
+
+  const stats = [
+    { num: t("stat1num"), label: t("stat1label") },
+    { num: t("stat2num"), label: t("stat2label") },
+    { num: t("stat3num"), label: t("stat3label") },
+  ]
 
   return (
     <section
@@ -66,16 +77,16 @@ export function HeroSection() {
 
       <div className="max-w-6xl mx-auto px-7 relative z-[2] flex items-center w-full min-h-screen pt-24 pb-16 flex-col md:flex-row gap-0">
         {/* Left: text */}
-        <div className="flex-1 min-w-0 text-left md:pr-10">
+        <div className="flex-1 min-w-0 text-start md:pe-10">
           <div
             className="inline-flex items-center gap-2 text-[#5ba4cf] text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
             style={{ background: "rgba(0,113,227,0.15)", border: "1px solid rgba(0,113,227,0.3)" }}
           >
             <span
-              className="w-1.5 h-1.5 rounded-full bg-[#5ba4cf]"
+              className="w-1.5 h-1.5 rounded-full bg-[#5ba4cf] shrink-0"
               style={{ animation: "pulse-dot 2s ease-in-out infinite" }}
             />
-            Global Telecom &amp; IT Partner
+            {t("heroBadge")}
           </div>
 
           <div className="mb-5">
@@ -83,31 +94,27 @@ export function HeroSection() {
           </div>
 
           <h1 className="text-[clamp(1.7rem,3vw,2.8rem)] font-semibold leading-[1.2] tracking-[-0.01em] text-white/90 mb-5">
-            Connecting Horizons.<br />Empowering Business.
+            {t("heroLine1")}<br />{t("heroLine2")}
           </h1>
 
           <p className="text-[clamp(0.95rem,1.6vw,1.15rem)] text-white/50 mb-9 font-normal leading-[1.7] max-w-[500px]">
-            Your top-tier, customer-centric partner for global and local communication via satellite and fiber optics. Reliable connectivity that scales with your ambitions.
+            {t("heroDesc")}
           </p>
 
           <Link
-            href="/services"
+            href={`/${locale}/services`}
             className="inline-block text-white px-9 py-4 rounded-full text-base font-semibold tracking-wide transition-all hover:-translate-y-0.5 hover:scale-[1.02]"
             style={{
               background: "linear-gradient(135deg, #2563a8, #005bb5)",
               boxShadow: "0 4px 20px rgba(0,113,227,0.35)",
             }}
           >
-            Explore Solutions
+            {t("heroCta")}
           </Link>
 
           <div className="flex gap-10 mt-[52px] pt-8 border-t border-white/[0.08] flex-wrap">
-            {[
-              { num: "500+", label: "km Fiber Deployed" },
-              { num: "99.9%", label: "Uptime SLA" },
-              { num: "50+", label: "Enterprise Clients" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-left">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-start">
                 <span className="text-[1.7rem] font-bold text-white block">{stat.num}</span>
                 <span className="text-xs text-white/40 uppercase tracking-widest mt-0.5 block">{stat.label}</span>
               </div>

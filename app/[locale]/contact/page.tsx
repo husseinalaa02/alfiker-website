@@ -1,18 +1,20 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 
 export default function ContactPage() {
+  const t = useTranslations("contact")
   const [fields, setFields] = useState({ name: "", email: "", message: "" })
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
+  const [status, setStatus] = useState<"idle" | "success">("idle")
   const [errors, setErrors] = useState<Partial<typeof fields>>({})
 
   function validate() {
     const e: Partial<typeof fields> = {}
-    if (!fields.name.trim()) e.name = "Name is required"
-    if (!fields.email.trim()) e.email = "Email is required"
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) e.email = "Invalid email address"
-    if (!fields.message.trim()) e.message = "Message is required"
+    if (!fields.name.trim()) e.name = t("nameRequired")
+    if (!fields.email.trim()) e.email = t("emailRequired")
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) e.email = t("emailInvalid")
+    if (!fields.message.trim()) e.message = t("messageRequired")
     return e
   }
 
@@ -31,7 +33,6 @@ export default function ContactPage() {
       setErrors(e2)
       return
     }
-    // Open mailto as the submission mechanism (no backend required)
     const mailto = `mailto:info@al-fiker.com?subject=Message from ${encodeURIComponent(fields.name)}&body=${encodeURIComponent(`Name: ${fields.name}\nEmail: ${fields.email}\n\n${fields.message}`)}`
     window.location.href = mailto
     setStatus("success")
@@ -45,7 +46,6 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Page header */}
       <section
         className="pt-32 pb-16 text-center relative overflow-hidden"
         style={{ background: "linear-gradient(160deg, #07070f 0%, #0c1a2e 100%)" }}
@@ -59,33 +59,27 @@ export default function ContactPage() {
           }}
         />
         <div className="max-w-6xl mx-auto px-7 relative z-10">
-          <h1 className="text-[clamp(2.2rem,5vw,3.8rem)] font-bold tracking-[-0.02em] text-white">
-            Contact Us
-          </h1>
-          <p className="text-white/50 mt-3 text-[1.1rem]">We&apos;d love to hear from you</p>
+          <h1 className="text-[clamp(2.2rem,5vw,3.8rem)] font-bold tracking-[-0.02em] text-white">{t("title")}</h1>
+          <p className="text-white/50 mt-3 text-[1.1rem]">{t("subtitle")}</p>
         </div>
       </section>
-
-      {/* Contact section */}
       <section className="py-[110px] bg-[#f4f6fb]">
         <div className="max-w-6xl mx-auto px-7">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px]">
-            {/* Form */}
             <div>
-              <h2 className="text-[1.8rem] font-bold text-[#1e2a3a] mb-7">Send a Message</h2>
-
+              <h2 className="text-[1.8rem] font-bold text-[#1e2a3a] mb-7">{t("formTitle")}</h2>
               {status === "success" ? (
                 <div
                   className="p-6 rounded-[12px] text-center"
                   style={{ background: "rgba(37,99,168,0.08)", border: "1.5px solid rgba(37,99,168,0.2)" }}
                 >
-                  <p className="text-[#2563a8] font-semibold text-[1.05rem] mb-1">Message ready to send!</p>
-                  <p className="text-[#6b7c99] text-[0.92rem]">Your email client has opened with the message pre-filled.</p>
+                  <p className="text-[#2563a8] font-semibold text-[1.05rem] mb-1">{t("successTitle")}</p>
+                  <p className="text-[#6b7c99] text-[0.92rem]">{t("successDesc")}</p>
                   <button
                     onClick={() => setStatus("idle")}
                     className="mt-4 text-[0.9rem] text-[#2563a8] underline underline-offset-2"
                   >
-                    Send another message
+                    {t("sendAnother")}
                   </button>
                 </div>
               ) : (
@@ -94,7 +88,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       name="name"
-                      placeholder="Your Name"
+                      placeholder={t("namePlaceholder")}
                       value={fields.name}
                       onChange={handleChange}
                       required
@@ -103,12 +97,11 @@ export default function ContactPage() {
                     />
                     {errors.name && <p className="text-red-500 text-[0.8rem] mt-1 ml-1">{errors.name}</p>}
                   </div>
-
                   <div className="mb-[18px]">
                     <input
                       type="email"
                       name="email"
-                      placeholder="Email Address"
+                      placeholder={t("emailPlaceholder")}
                       value={fields.email}
                       onChange={handleChange}
                       required
@@ -117,12 +110,11 @@ export default function ContactPage() {
                     />
                     {errors.email && <p className="text-red-500 text-[0.8rem] mt-1 ml-1">{errors.email}</p>}
                   </div>
-
                   <div className="mb-[18px]">
                     <textarea
                       rows={6}
                       name="message"
-                      placeholder="Your Message"
+                      placeholder={t("messagePlaceholder")}
                       value={fields.message}
                       onChange={handleChange}
                       required
@@ -131,7 +123,6 @@ export default function ContactPage() {
                     />
                     {errors.message && <p className="text-red-500 text-[0.8rem] mt-1 ml-1">{errors.message}</p>}
                   </div>
-
                   <button
                     type="submit"
                     className="self-start text-white border-0 px-[34px] py-3.5 rounded-full cursor-pointer font-semibold text-[0.95rem] transition-all hover:-translate-y-0.5"
@@ -140,20 +131,14 @@ export default function ContactPage() {
                       boxShadow: "0 4px 16px rgba(37,99,168,0.28)",
                     }}
                   >
-                    Send Message
+                    {t("submit")}
                   </button>
                 </form>
               )}
             </div>
-
-            {/* Info */}
             <div>
-              <h3 className="text-[1.6rem] font-bold text-[#1e2a3a] mb-3.5">Get in Touch</h3>
-              <p className="text-[#6b7c99] leading-[1.7] mb-2.5">
-                Visit our official website for more details or reach out via our contact form. Our
-                team is ready to help.
-              </p>
-
+              <h3 className="text-[1.6rem] font-bold text-[#1e2a3a] mb-3.5">{t("infoTitle")}</h3>
+              <p className="text-[#6b7c99] leading-[1.7] mb-2.5">{t("infoDesc")}</p>
               <div
                 className="flex items-start gap-4 mt-7 p-5 bg-white rounded-[10px] shadow-[0_2px_10px_rgba(37,99,168,0.06)]"
                 style={{ border: "1px solid rgba(37,99,168,0.1)" }}
@@ -161,7 +146,7 @@ export default function ContactPage() {
                 <span className="text-[#2563a8] text-[1.2rem] mt-0.5">🌐</span>
                 <div>
                   <h4 className="text-[0.85rem] font-semibold uppercase tracking-[0.05em] text-[#6b7c99] mb-1">
-                    Website
+                    {t("websiteLabel")}
                   </h4>
                   <a
                     href="https://www.al-fiker.com/"
