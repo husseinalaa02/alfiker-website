@@ -112,7 +112,8 @@ export function NavBarWrapper() {
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-            <button
+            <Link
+              href={`/${locale}/services`}
               className="flex items-center gap-1 px-4 py-1.5 text-[0.82rem] font-medium rounded-full transition-colors"
               style={{ color: linkColor(pathname.startsWith(`/${locale}/services`)) }}
               onMouseEnter={hoverOn}
@@ -120,7 +121,7 @@ export function NavBarWrapper() {
             >
               {t("services")}
               <ChevronDown size={13} className="transition-transform duration-200" style={{ transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)" }} />
-            </button>
+            </Link>
 
             {servicesOpen && (
               <div
@@ -156,7 +157,8 @@ export function NavBarWrapper() {
             onMouseEnter={() => setProjectsOpen(true)}
             onMouseLeave={() => setProjectsOpen(false)}
           >
-            <button
+            <Link
+              href={`/${locale}/projects`}
               className="flex items-center gap-1 px-4 py-1.5 text-[0.82rem] font-medium rounded-full transition-colors"
               style={{ color: linkColor(pathname.startsWith(`/${locale}/projects`)) }}
               onMouseEnter={hoverOn}
@@ -164,7 +166,7 @@ export function NavBarWrapper() {
             >
               {t("projects")}
               <ChevronDown size={13} className="transition-transform duration-200" style={{ transform: projectsOpen ? "rotate(180deg)" : "rotate(0deg)" }} />
-            </button>
+            </Link>
 
             {projectsOpen && (
               <div
