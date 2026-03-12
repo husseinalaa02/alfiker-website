@@ -124,8 +124,8 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Right: Connectivity visualization */}
-        <div className="flex-1 min-w-0 w-full md:h-[580px] mt-4 md:mt-0">
+        {/* Right: Connectivity visualization — hidden on mobile */}
+        <div className="hidden md:block flex-1 min-w-0 w-full md:h-[580px] mt-4 md:mt-0">
           <ConnectivityVisual />
         </div>
       </div>
