@@ -50,7 +50,9 @@ export default async function LocaleLayout({
             <div className="max-w-6xl mx-auto px-7">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-9 mb-12">
                 <div>
-                  <span className="animated-shiny-text text-[1.6rem] block mb-2.5 whitespace-nowrap">AFAQ ALFIKER</span>
+                  <span className="animated-shiny-text text-[1.6rem] block mb-2.5 whitespace-nowrap">
+                    {isArabic ? "افاق الفكر" : "AFAQ ALFIKER"}
+                  </span>
                   <p className="text-sm text-white/40">
                     {isArabic
                       ? "خدمات الاتصالات والبرمجيات. نربط العالم من خلال الابتكار والدقة."

@@ -90,7 +90,9 @@ export function HeroSection() {
           </div>
 
           <div className="mb-5">
-            <span className="animated-shiny-text text-[clamp(2.6rem,7vw,6rem)] whitespace-nowrap">AFAQ ALFIKER</span>
+            <span className="animated-shiny-text text-[clamp(2.6rem,7vw,6rem)] whitespace-nowrap">
+              {locale === "ar" ? "افاق الفكر" : "AFAQ ALFIKER"}
+            </span>
           </div>
 
           <h1 className="text-[clamp(1.7rem,3vw,2.8rem)] font-semibold leading-[1.2] tracking-[-0.01em] text-white/90 mb-5">
