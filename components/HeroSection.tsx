@@ -89,8 +89,8 @@ export function HeroSection() {
             {t("heroBadge")}
           </div>
 
-          <div className="mb-5">
-            <span className="animated-shiny-text text-[clamp(2.6rem,7vw,6rem)] whitespace-nowrap">
+          <div className="mb-5 overflow-visible pb-2">
+            <span className="animated-shiny-text text-[clamp(2.6rem,7vw,6rem)] whitespace-nowrap leading-[1.2]">
               {locale === "ar" ? "آفاق الفكر" : "AFAQ ALFIKER"}
             </span>
           </div>
