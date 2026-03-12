@@ -30,6 +30,8 @@ export default function ContactPage() {
     })
 
     if (res.ok) {
+      const mailto = `mailto:info@al-fiker.com?subject=${encodeURIComponent(`Message from ${fields.name}`)}&body=${encodeURIComponent(`Name: ${fields.name}\nEmail: ${fields.email}\n\n${fields.message}`)}`
+      window.location.href = mailto
       setStatus("success")
       setFields({ name: "", email: "", message: "" })
       return
