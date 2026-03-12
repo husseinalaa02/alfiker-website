@@ -114,7 +114,7 @@ export function HeroSection() {
             {t("heroCta")}
           </Link>
 
-          <div className="flex gap-10 mt-[52px] pt-8 border-t border-white/[0.08] flex-wrap">
+          <div className="flex gap-6 md:gap-10 mt-[52px] pt-8 border-t border-white/[0.08]">
             {stats.map((stat) => (
               <div key={stat.label} className="text-start">
                 <span className="text-[1.7rem] font-bold text-white block">{stat.num}</span>
