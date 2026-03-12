@@ -126,7 +126,10 @@
     "nameRequired": "Name is required",
     "emailRequired": "Email is required",
     "emailInvalid": "Invalid email address",
-    "messageRequired": "Message is required"
+    "messageRequired": "Message is required",
+    "sending": "Sending…",
+    "submitError": "Something went wrong. Please try again.",
+    "tooManyRequests": "Too many requests. Please wait a minute before trying again."
   },
   "footer": {
     "tagline": "Telecom and Software Services. Connecting the world through innovation and precision.",

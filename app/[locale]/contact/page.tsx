@@ -6,17 +6,9 @@ import { useTranslations } from "next-intl"
 export default function ContactPage() {
   const t = useTranslations("contact")
   const [fields, setFields] = useState({ name: "", email: "", message: "" })
-  const [status, setStatus] = useState<"idle" | "success">("idle")
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
   const [errors, setErrors] = useState<Partial<typeof fields>>({})
-
-  function validate() {
-    const e: Partial<typeof fields> = {}
-    if (!fields.name.trim()) e.name = t("nameRequired")
-    if (!fields.email.trim()) e.email = t("emailRequired")
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) e.email = t("emailInvalid")
-    if (!fields.message.trim()) e.message = t("messageRequired")
-    return e
-  }
+  const [serverError, setServerError] = useState("")
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target
@@ -26,17 +18,34 @@ export default function ContactPage() {
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    const e2 = validate()
-    if (Object.keys(e2).length > 0) {
-      setErrors(e2)
+    setServerError("")
+    setStatus("sending")
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(fields),
+    })
+
+    if (res.ok) {
+      setStatus("success")
+      setFields({ name: "", email: "", message: "" })
       return
     }
-    const mailto = `mailto:info@al-fiker.com?subject=Message from ${encodeURIComponent(fields.name)}&body=${encodeURIComponent(`Name: ${fields.name}\nEmail: ${fields.email}\n\n${fields.message}`)}`
-    window.location.href = mailto
-    setStatus("success")
-    setFields({ name: "", email: "", message: "" })
+
+    const data = await res.json().catch(() => ({}))
+    if (res.status === 422 && data.errors) {
+      setErrors(data.errors)
+      setStatus("idle")
+    } else if (res.status === 429) {
+      setServerError(data.error ?? t("tooManyRequests"))
+      setStatus("error")
+    } else {
+      setServerError(data.error ?? t("submitError"))
+      setStatus("error")
+    }
   }
 
   const inputClass =
@@ -68,6 +77,11 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px]">
             <div>
               <h2 className="text-[1.8rem] font-bold text-[#1e2a3a] mb-7">{t("formTitle")}</h2>
+              {serverError && (
+                <div className="mb-4 p-4 rounded-[10px] text-sm text-red-600" style={{ background: "rgba(220,38,38,0.06)", border: "1.5px solid rgba(220,38,38,0.2)" }}>
+                  {serverError}
+                </div>
+              )}
               {status === "success" ? (
                 <div
                   className="p-6 rounded-[12px] text-center"
@@ -125,13 +139,14 @@ export default function ContactPage() {
                   </div>
                   <button
                     type="submit"
-                    className="self-start text-white border-0 px-[34px] py-3.5 rounded-full cursor-pointer font-semibold text-[0.95rem] transition-all hover:-translate-y-0.5"
+                    disabled={status === "sending"}
+                    className="self-start text-white border-0 px-[34px] py-3.5 rounded-full cursor-pointer font-semibold text-[0.95rem] transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
                     style={{
                       background: "linear-gradient(135deg, #2563a8, #1a4f8a)",
                       boxShadow: "0 4px 16px rgba(37,99,168,0.28)",
                     }}
                   >
-                    {t("submit")}
+                    {status === "sending" ? t("sending") : t("submit")}
                   </button>
                 </form>
               )}
