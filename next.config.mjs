@@ -7,7 +7,6 @@ const nextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "z-cdn-media.chatglm.cn" },
     ],
   },
   async headers() {
@@ -29,7 +28,7 @@ const nextConfig = {
               "script-src 'self' 'unsafe-inline'",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: https://images.unsplash.com https://cdn.simpleicons.org https://z-cdn-media.chatglm.cn",
+              "img-src 'self' data: https://images.unsplash.com https://cdn.simpleicons.org",
               // Vercel Analytics & Speed Insights telemetry endpoint
               "connect-src 'self' https://vitals.vercel-insights.com",
               "frame-ancestors 'none'",

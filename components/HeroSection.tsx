@@ -69,7 +69,7 @@ export function HeroSection() {
       {/* Logo watermark */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="https://z-cdn-media.chatglm.cn/files/1605812b-fba0-4c1d-b402-b94cfd86fb82.png?auth_key=1871489473-6b05af61da6a40ce927122f1df0bc258-0-281de65fa117e26f652be6cc461983f7"
+        src="/logos/afaq_logo.png"
         alt=""
         className="absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 w-[40%] max-w-[560px] opacity-[0.03] z-[1] pointer-events-none"
         style={{ filter: "grayscale(100%) invert(1)" }}
