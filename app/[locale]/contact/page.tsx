@@ -167,6 +167,7 @@ export default function ContactPage() {
                   </h4>
                   <a
                     href="tel:+9647701009005"
+                    dir="ltr"
                     className="text-[#1e2a3a] font-medium hover:text-[#2563a8] transition-colors"
                   >
                     +964 770 100 9005

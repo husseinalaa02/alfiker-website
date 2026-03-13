@@ -108,6 +108,7 @@ export default async function LocaleLayout({
                   </h4>
                   <a
                     href="tel:+9647701009005"
+                    dir="ltr"
                     className="text-[0.88rem] text-white/45 hover:text-white/85 transition-colors block mb-4"
                   >
                     +964 770 100 9005
