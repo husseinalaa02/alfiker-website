@@ -160,18 +160,16 @@ export default function ContactPage() {
                 className="flex items-start gap-4 mt-7 p-5 bg-white rounded-[10px] shadow-[0_2px_10px_rgba(37,99,168,0.06)]"
                 style={{ border: "1px solid rgba(37,99,168,0.1)" }}
               >
-                <span className="text-[#2563a8] text-[1.2rem] mt-0.5">🌐</span>
+                <span className="text-[#2563a8] text-[1.2rem] mt-0.5">📞</span>
                 <div>
                   <h4 className="text-[0.85rem] font-semibold uppercase tracking-[0.05em] text-[#6b7c99] mb-1">
                     {t("websiteLabel")}
                   </h4>
                   <a
-                    href="https://www.al-fiker.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="tel:+9647701009005"
                     className="text-[#1e2a3a] font-medium hover:text-[#2563a8] transition-colors"
                   >
-                    www.al-fiker.com
+                    +964 770 100 9005
                   </a>
                 </div>
               </div>
