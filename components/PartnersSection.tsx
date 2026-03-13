@@ -66,11 +66,11 @@ export function PartnersSection({ title, subtitle }: PartnersSectionProps) {
           style={{ background: "linear-gradient(to left, white, transparent)" }}
         />
 
-        <div className="flex gap-6 partners-marquee">
+        <div className="flex partners-marquee">
           {track.map((p, i) => (
             <div
               key={`${p.name}-${i}`}
-              className="flex-shrink-0 flex flex-col items-center justify-center gap-2.5 bg-[#f4f6fb] border border-[rgba(37,99,168,0.1)] rounded-[14px] px-7 py-5 w-[140px]"
+              className="flex-shrink-0 flex flex-col items-center justify-center gap-2.5 bg-[#f4f6fb] border border-[rgba(37,99,168,0.1)] rounded-[14px] px-7 py-5 w-[140px] mr-6"
             >
               <PartnerLogo name={p.name} logo={p.logo} />
               <span className="text-[0.68rem] font-semibold text-[#6b7c99] tracking-wide uppercase">{p.name}</span>
