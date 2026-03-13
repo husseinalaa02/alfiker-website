@@ -1,5 +1,14 @@
-/* Cairo font for Arabic locale — loaded at runtime to avoid build-time fetch */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+/* Almarai font for Arabic locale */
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+
+/* ITC Handel Gothic Arabic Heavy — self-hosted (place file at /public/fonts/HandelGothicArabicHeavy.woff2) */
+@font-face {
+  font-family: 'Handel Gothic Arabic';
+  src: url('/fonts/HandelGothicArabicHeavy.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;

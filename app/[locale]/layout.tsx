@@ -9,6 +9,7 @@ import { notFound } from "next/navigation"
 import { routing } from "@/i18n/routing"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Linkedin, Facebook, Instagram } from "lucide-react"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,8 +36,8 @@ export default async function LocaleLayout({
 
   const messages = await getMessages()
   const isArabic = locale === "ar"
-  // For Arabic, use Cairo font-family (loaded via CSS @import in globals.css)
-  const bodyStyle = isArabic ? { fontFamily: "'Cairo', sans-serif" } : undefined
+  // For Arabic, use Almarai font-family (loaded via CSS @import in globals.css)
+  const bodyStyle = isArabic ? { fontFamily: "'Almarai', sans-serif" } : undefined
 
   return (
     <html lang={locale} dir={isArabic ? "rtl" : "ltr"} suppressHydrationWarning>
@@ -109,10 +110,52 @@ export default async function LocaleLayout({
                     href="https://www.al-fiker.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[0.88rem] text-white/45 hover:text-white/85 transition-colors"
+                    className="text-[0.88rem] text-white/45 hover:text-white/85 transition-colors block mb-4"
                   >
                     www.al-fiker.com
                   </a>
+                  {/* Social media icons */}
+                  <div className="flex items-center gap-3">
+                    <a
+                      href="https://www.linkedin.com/company/al-fiker-horizons/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                      className="text-white/40 hover:text-white/85 transition-colors"
+                    >
+                      <Linkedin size={18} />
+                    </a>
+                    <a
+                      href="https://www.facebook.com/alfiker.horizons?mibextid=wwXIfr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                      className="text-white/40 hover:text-white/85 transition-colors"
+                    >
+                      <Facebook size={18} />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/alfiker.karbala?igsh=MTNhMTVpZzFqZGd1aA%3D%3D&utm_source=qr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                      className="text-white/40 hover:text-white/85 transition-colors"
+                    >
+                      <Instagram size={18} />
+                    </a>
+                    <a
+                      href="https://www.tiktok.com/@alfiker_karbala2025?_r=1&_t=ZS-94d0JlvlGio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="TikTok"
+                      className="text-white/40 hover:text-white/85 transition-colors"
+                    >
+                      {/* TikTok SVG icon */}
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07Z"/>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="border-t border-white/[0.07] pt-6 text-center">
