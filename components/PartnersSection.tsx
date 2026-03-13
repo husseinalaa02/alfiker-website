@@ -66,7 +66,7 @@ export function PartnersSection({ title, subtitle }: PartnersSectionProps) {
           style={{ background: "linear-gradient(to left, white, transparent)" }}
         />
 
-        <div className="flex partners-marquee">
+        <div className="flex partners-marquee" dir="ltr">
           {track.map((p, i) => (
             <div
               key={`${p.name}-${i}`}
