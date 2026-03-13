@@ -107,12 +107,10 @@ export default async function LocaleLayout({
                     {isArabic ? "التواصل" : "Contact"}
                   </h4>
                   <a
-                    href="https://www.al-fiker.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="tel:+9647701009005"
                     className="text-[0.88rem] text-white/45 hover:text-white/85 transition-colors block mb-4"
                   >
-                    www.al-fiker.com
+                    +964 770 100 9005
                   </a>
                   {/* Social media icons */}
                   <div className="flex items-center gap-3">
