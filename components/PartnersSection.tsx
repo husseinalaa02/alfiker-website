@@ -56,7 +56,7 @@ export function PartnersSection({ title, subtitle }: PartnersSectionProps) {
         <p className="text-[#6b7c99] text-[1rem]">{subtitle}</p>
       </div>
 
-      <div className="relative">
+      <div className="relative" dir="ltr">
         <div
           className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
           style={{ background: "linear-gradient(to right, white, transparent)" }}
@@ -66,7 +66,7 @@ export function PartnersSection({ title, subtitle }: PartnersSectionProps) {
           style={{ background: "linear-gradient(to left, white, transparent)" }}
         />
 
-        <div className="flex partners-marquee" dir="ltr">
+        <div className="flex partners-marquee">
           {track.map((p, i) => (
             <div
               key={`${p.name}-${i}`}
