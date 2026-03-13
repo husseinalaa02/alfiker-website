@@ -1,10 +1,43 @@
 "use client"
 
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, useState } from "react"
 import Link from "next/link"
 import { ConnectivityVisual } from "./ConnectivityVisual"
 import { useTranslations } from "next-intl"
 import { useParams } from "next/navigation"
+
+function CountUpStat({ target, suffix, decimals = 0, label, isArabic }: {
+  target: number
+  suffix: string
+  decimals?: number
+  label: string
+  isArabic: boolean
+}) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    const duration = 2000
+    const start = performance.now()
+    function tick(now: number) {
+      const progress = Math.min((now - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCount(eased * target)
+      if (progress < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  }, [target])
+
+  const displayed = decimals > 0 ? count.toFixed(decimals) : Math.floor(count).toString()
+
+  return (
+    <div className="text-start">
+      <span className="text-[1.7rem] font-bold text-white block">
+        {isArabic ? `${suffix}${displayed}` : `${displayed}${suffix}`}
+      </span>
+      <span className="text-xs text-white/40 uppercase tracking-widest mt-0.5 block">{label}</span>
+    </div>
+  )
+}
 
 export function HeroSection() {
   const heroRef = useRef<HTMLElement>(null)
@@ -35,10 +68,12 @@ export function HeroSection() {
     }
   }, [])
 
+  const isArabic = locale === "ar"
+
   const stats = [
-    { num: t("stat1num"), label: t("stat1label") },
-    { num: t("stat2num"), label: t("stat2label") },
-    { num: t("stat3num"), label: t("stat3label") },
+    { target: 500,  suffix: "+",  decimals: 0, label: t("stat1label") },
+    { target: 99.9, suffix: "%",  decimals: 1, label: t("stat2label") },
+    { target: 50,   suffix: "+",  decimals: 0, label: t("stat3label") },
   ]
 
   return (
@@ -116,10 +151,14 @@ export function HeroSection() {
 
           <div className="flex gap-6 md:gap-10 mt-[52px] pt-8 border-t border-white/[0.08]">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-start">
-                <span className="text-[1.7rem] font-bold text-white block">{stat.num}</span>
-                <span className="text-xs text-white/40 uppercase tracking-widest mt-0.5 block">{stat.label}</span>
-              </div>
+              <CountUpStat
+                key={stat.label}
+                target={stat.target}
+                suffix={stat.suffix}
+                decimals={stat.decimals}
+                label={stat.label}
+                isArabic={isArabic}
+              />
             ))}
           </div>
         </div>
