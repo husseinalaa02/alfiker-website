@@ -101,14 +101,6 @@ export function HeroSection() {
       {/* Cursor spotlight */}
       <div ref={spotlightRef} className="hero-spotlight" />
 
-      {/* Logo watermark */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/logos/afaq_logo.png"
-        alt=""
-        className="absolute top-1/2 left-[25%] -translate-x-1/2 -translate-y-1/2 w-[40%] max-w-[560px] opacity-[0.03] z-[1] pointer-events-none"
-        style={{ filter: "grayscale(100%) invert(1)" }}
-      />
 
       <div className="max-w-6xl mx-auto px-7 relative z-[2] flex items-center w-full min-h-screen pt-24 pb-16 flex-col md:flex-row gap-0">
         {/* Left: text */}
