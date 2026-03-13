@@ -270,10 +270,10 @@ export function ConnectivityVisual() {
         <text x="280" y="46"  textAnchor="middle" fill="#5ba4cf" fontSize="10" fontFamily="Inter, sans-serif" fontWeight="600" letterSpacing="0.12em" opacity="0.65">
           SATELLITE LINK
         </text>
-        <text x="520" y="288" textAnchor="start"  fill="#5ba4cf" fontSize="9"  fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.08em" opacity="0.5">
+        <text x="554" y="288" textAnchor="end" fill="#5ba4cf" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.08em" opacity="0.5">
           FIBER OPTIC
         </text>
-        <text x="520" y="300" textAnchor="start"  fill="#5ba4cf" fontSize="9"  fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.08em" opacity="0.5">
+        <text x="554" y="300" textAnchor="end" fill="#5ba4cf" fontSize="9" fontFamily="Inter, sans-serif" fontWeight="500" letterSpacing="0.08em" opacity="0.5">
           NETWORK
         </text>
       </svg>
