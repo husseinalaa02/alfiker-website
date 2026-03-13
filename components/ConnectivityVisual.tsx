@@ -31,7 +31,7 @@ export function ConnectivityVisual() {
   ]
 
   return (
-    <div className="relative w-full h-full min-h-[340px] flex items-center justify-center select-none">
+    <div className="relative w-full h-full min-h-[340px] flex items-center justify-center select-none" dir="ltr">
       <svg
         viewBox="0 0 560 560"
         className="w-full h-full max-w-[540px]"
